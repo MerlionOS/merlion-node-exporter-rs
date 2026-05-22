@@ -1,0 +1,11 @@
+Merlion Node Exporter
+Copyright 2026 The MerlionOS Authors
+
+This product includes software derived from / inspired by the upstream
+Prometheus Node Exporter (https://github.com/prometheus/node_exporter),
+Copyright The Prometheus Authors, licensed under the Apache License,
+Version 2.0.
+
+Metric names, label conventions, and CLI flag names follow that of the
+upstream node_exporter so that existing Prometheus dashboards, alerting
+rules, and deployment tooling continue to work unchanged.
