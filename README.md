@@ -113,6 +113,7 @@ Linux MVP — remaining 12 collectors, one PR each:
 - [ ] `thermal_zone` — `/sys/class/thermal/thermal_zone*`
 - [x] `thermal_zone` — `/sys/class/thermal/thermal_zone*`
 - [ ] `time` — system clock + NTP sync state
+- [x] `time` — system clock + NTP sync state
 - [ ] `textfile` — `*.prom` files from a configured directory
 
 Past MVP:
