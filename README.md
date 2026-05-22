@@ -108,6 +108,8 @@ Linux MVP — remaining 12 collectors, one PR each:
 - [x] `sockstat` — `/proc/net/sockstat{,6}`
 - [ ] `pressure` — `/proc/pressure/{cpu,memory,io}`
 - [ ] `hwmon` — `/sys/class/hwmon/`
+- [ ] `pressure` — `/proc/pressure/{cpu,memory,io}`
+- [x] `hwmon` — `/sys/class/hwmon/`
 - [ ] `thermal_zone` — `/sys/class/thermal/thermal_zone*`
 - [ ] `time` — system clock + NTP sync state
 - [ ] `textfile` — `*.prom` files from a configured directory
