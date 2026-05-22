@@ -11,6 +11,7 @@ pub mod filesystem;
 pub mod loadavg;
 pub mod meminfo;
 pub mod uname;
+pub mod vmstat;
 
 pub type BoxedCollector = Box<dyn Collector>;
 
@@ -24,5 +25,6 @@ pub fn all() -> Vec<BoxedCollector> {
         Box::new(loadavg::LoadavgCollector),
         Box::new(meminfo::MeminfoCollector),
         Box::new(uname::UnameCollector),
+        Box::new(vmstat::VmstatCollector),
     ]
 }
