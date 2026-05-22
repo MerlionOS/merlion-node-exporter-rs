@@ -95,7 +95,7 @@ Linux MVP — remaining 12 collectors, one PR each:
 - [ ] `cpu` — `/proc/stat` per-CPU jiffies
 - [ ] `diskstats` — `/proc/diskstats`
 - [ ] `netdev` — `/proc/net/dev`
-- [ ] `filesystem` — `getmntinfo` + `statvfs`
+- [x] `filesystem` — `getmntinfo` + `statvfs`
 - [ ] `stat` — `/proc/stat` (boot time, intr, ctxt, processes)
 - [ ] `vmstat` — `/proc/vmstat`
 - [ ] `netstat` — `/proc/net/{netstat,snmp,snmp6}`
