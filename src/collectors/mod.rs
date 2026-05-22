@@ -10,6 +10,7 @@ pub mod cpu;
 pub mod filesystem;
 pub mod loadavg;
 pub mod meminfo;
+pub mod stat;
 pub mod uname;
 pub mod vmstat;
 
@@ -24,6 +25,7 @@ pub fn all() -> Vec<BoxedCollector> {
         Box::new(filesystem::FilesystemCollector),
         Box::new(loadavg::LoadavgCollector),
         Box::new(meminfo::MeminfoCollector),
+        Box::new(stat::StatCollector),
         Box::new(uname::UnameCollector),
         Box::new(vmstat::VmstatCollector),
     ]
