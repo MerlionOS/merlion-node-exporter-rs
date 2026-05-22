@@ -7,6 +7,7 @@
 use crate::registry::Collector;
 
 pub mod cpu;
+pub mod diskstats;
 pub mod filesystem;
 pub mod hwmon;
 pub mod loadavg;
@@ -29,6 +30,7 @@ pub type BoxedCollector = Box<dyn Collector>;
 pub fn all() -> Vec<BoxedCollector> {
     vec![
         Box::new(cpu::CpuCollector),
+        Box::new(diskstats::DiskstatsCollector),
         Box::new(filesystem::FilesystemCollector),
         Box::new(hwmon::HwmonCollector),
         Box::new(loadavg::LoadavgCollector),
