@@ -1,0 +1,48 @@
+[package]
+name = "merlion-node-exporter-rs"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Rust reimplementation of Prometheus node_exporter — hardware and OS metrics exposed by *NIX kernels. Parallel to a planned merlion-node-exporter-cpp."
+license = "Apache-2.0"
+repository = "https://github.com/MerlionOS/merlion-node-exporter-rs"
+readme = "README.md"
+keywords = ["prometheus", "monitoring", "metrics", "exporter", "node"]
+categories = ["command-line-utilities"]
+
+# The Rust crate is suffixed `-rs` for parity with merlion-tsdb-rs and a
+# planned merlion-node-exporter-cpp; the binary is intentionally not
+# suffixed — operators install one or the other but type the same command.
+[[bin]]
+name = "merlion-node-exporter"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+axum = { version = "0.8", default-features = false, features = ["http1", "tokio"] }
+clap = { version = "4", features = ["derive", "env"] }
+libc = "0.2"
+thiserror = "2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal", "net"] }
+tower = { version = "0.5", default-features = false }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+unreachable_pub = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+module_name_repetitions = "allow"
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+must_use_candidate = "allow"
