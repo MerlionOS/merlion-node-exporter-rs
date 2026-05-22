@@ -101,6 +101,8 @@ Linux MVP — remaining 12 collectors, one PR each:
 - [x] `stat` — `/proc/stat` (boot time, intr, ctxt, processes)
 - [ ] `vmstat` — `/proc/vmstat`
 - [ ] `netstat` — `/proc/net/{netstat,snmp,snmp6}`
+- [ ] `vmstat` — `/proc/vmstat`
+- [x] `netstat` — `/proc/net/{netstat,snmp,snmp6}`
 - [ ] `sockstat` — `/proc/net/sockstat{,6}`
 - [ ] `pressure` — `/proc/pressure/{cpu,memory,io}`
 - [ ] `hwmon` — `/sys/class/hwmon/`
