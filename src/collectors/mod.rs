@@ -14,6 +14,7 @@ pub mod stat;
 pub mod netstat;
 pub mod pressure;
 pub mod sockstat;
+pub mod netdev;
 pub mod uname;
 pub mod vmstat;
 
@@ -32,6 +33,7 @@ pub fn all() -> Vec<BoxedCollector> {
         Box::new(netstat::NetstatCollector),
         Box::new(pressure::PressureCollector),
         Box::new(sockstat::SockstatCollector),
+        Box::new(netdev::NetdevCollector),
         Box::new(uname::UnameCollector),
         Box::new(vmstat::VmstatCollector),
     ]
