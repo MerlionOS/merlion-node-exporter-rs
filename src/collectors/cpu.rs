@@ -210,7 +210,7 @@ cpu0 10 20 30 40 50 60 70 80
         let metrics = parse(FIXTURE_LEGACY_NO_GUEST).unwrap();
         assert_eq!(metrics.len(), 1, "no guest metric on legacy kernel");
         assert_eq!(metrics[0].name, "node_cpu_seconds_total");
-        assert_eq!(metrics[0].samples.len(), 8);  // 1 CPU × 8 modes
+        assert_eq!(metrics[0].samples.len(), 8); // 1 CPU × 8 modes
     }
 
     #[test]
@@ -228,7 +228,9 @@ cpu0 10 20 30 40 50 60 70 80
 
     #[test]
     fn rejects_non_integer_field() {
-        let err = parse("cpu0 1 2 banana 4 5 6 7 8\n").unwrap_err().to_string();
+        let err = parse("cpu0 1 2 banana 4 5 6 7 8\n")
+            .unwrap_err()
+            .to_string();
         assert!(err.contains("parsing field"), "{err}");
     }
 
