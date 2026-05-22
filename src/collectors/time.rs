@@ -162,7 +162,7 @@ fn read_local_zone() -> Option<(String, i64)> {
 mod linux {
     //! adjtimex(2) — phase-locked loop and PPS state.
     //!
-    //! All metric names, divisors, and the STA_NANO unit switch mirror
+    //! All metric names, divisors, and the `STA_NANO` unit switch mirror
     //! `node_exporter/collector/timex.go`. Counter-typed metric values
     //! are signed in the kernel struct but always non-negative in
     //! practice (they're monotonically-incrementing event counters); we
@@ -201,6 +201,12 @@ mod linux {
     /// Convert a populated `libc::timex` into the 17 metric families that
     /// upstream `node_exporter` emits. Pure function — easy to unit-test
     /// against a hand-constructed struct.
+    //
+    // Each kernel field becomes its own emitter line, so the function is a
+    // wide-but-shallow list rather than something a helper extraction would
+    // actually simplify. Splitting would just trade one length lint for
+    // navigation overhead.
+    #[allow(clippy::too_many_lines)]
     pub(super) fn compute_timex_metrics(t: &libc::timex) -> Vec<Metric> {
         // c_long / c_int → f64. Field magnitudes are bounded by the
         // kernel's PLL design (offsets are < ±0.5s when nanoseconds, and
@@ -325,7 +331,7 @@ mod linux {
         use super::*;
 
         /// Hand-construct a `libc::timex` with known fields and verify
-        /// every divisor + the STA_NANO branch.
+        /// every divisor + the `STA_NANO` branch.
         fn make_timex(status: libc::c_int) -> libc::timex {
             // SAFETY: `libc::timex` is plain-old-data; an all-zero
             // representation is a valid value of the type. We then

@@ -90,30 +90,20 @@ Scaffold PR — this repo at the time of writing:
 - [x] `loadavg`, `meminfo`, `uname`
 - [x] CLI flags matching upstream node_exporter conventions
 
-Linux MVP — remaining 12 collectors, one PR each:
+Linux MVP collectors:
 
-- [ ] `cpu` — `/proc/stat` per-CPU jiffies
+- [x] `cpu` — `/proc/stat` per-CPU jiffies
 - [ ] `diskstats` — `/proc/diskstats`
+- [x] `filesystem` — `/proc/mounts` + `statvfs`
+- [x] `hwmon` — `/sys/class/hwmon/`
 - [x] `netdev` — `/proc/net/dev`
-- [x] `filesystem` — `getmntinfo` + `statvfs`
-- [ ] `stat` — `/proc/stat` (boot time, intr, ctxt, processes)
-- [x] `vmstat` — `/proc/vmstat`
-- [x] `stat` — `/proc/stat` (boot time, intr, ctxt, processes)
-- [ ] `vmstat` — `/proc/vmstat`
-- [ ] `netstat` — `/proc/net/{netstat,snmp,snmp6}`
-- [ ] `vmstat` — `/proc/vmstat`
 - [x] `netstat` — `/proc/net/{netstat,snmp,snmp6}`
-- [ ] `sockstat` — `/proc/net/sockstat{,6}`
 - [x] `pressure` — `/proc/pressure/{cpu,memory,io}`
 - [x] `sockstat` — `/proc/net/sockstat{,6}`
-- [ ] `pressure` — `/proc/pressure/{cpu,memory,io}`
-- [ ] `hwmon` — `/sys/class/hwmon/`
-- [ ] `pressure` — `/proc/pressure/{cpu,memory,io}`
-- [x] `hwmon` — `/sys/class/hwmon/`
-- [ ] `thermal_zone` — `/sys/class/thermal/thermal_zone*`
+- [x] `stat` — `/proc/stat` (boot time, intr, ctxt, processes)
 - [x] `thermal_zone` — `/sys/class/thermal/thermal_zone*`
-- [ ] `time` — system clock + NTP sync state
 - [x] `time` — system clock + NTP sync state
+- [x] `vmstat` — `/proc/vmstat`
 - [ ] `textfile` — `*.prom` files from a configured directory
 
 Past MVP:

@@ -1,0 +1,10 @@
+# Pin the toolchain so `cargo fmt` (which sorts `pub mod` declarations and
+# rotates the canonical import-grouping form between minor versions) and
+# `cargo clippy` (whose pedantic lint set evolves with each release) agree
+# byte-for-byte between contributors and CI. Without this, mechanical PRs
+# can land green locally and red on CI — see the post-mortem in
+# commits 81213c0..d2dc2c2.
+[toolchain]
+channel = "1.95.0"
+components = ["rustfmt", "clippy"]
+profile = "minimal"
