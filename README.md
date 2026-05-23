@@ -93,7 +93,7 @@ Scaffold PR — this repo at the time of writing:
 Linux MVP collectors:
 
 - [x] `cpu` — `/proc/stat` per-CPU jiffies
-- [ ] `diskstats` — `/proc/diskstats`
+- [x] `diskstats` — `/proc/diskstats`
 - [x] `filesystem` — `/proc/mounts` + `statvfs`
 - [x] `hwmon` — `/sys/class/hwmon/`
 - [x] `netdev` — `/proc/net/dev`
