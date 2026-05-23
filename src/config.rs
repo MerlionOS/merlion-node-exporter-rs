@@ -11,6 +11,10 @@ pub struct Config {
     pub procfs: PathBuf,
     pub sysfs: PathBuf,
     pub rootfs: PathBuf,
+    /// Directory scanned by the `textfile` collector for `*.prom` files.
+    /// `None` disables the collector — matching upstream's behaviour when
+    /// `--collector.textfile.directory` is unset.
+    pub textfile_directory: Option<PathBuf>,
 }
 
 impl Config {
@@ -19,7 +23,14 @@ impl Config {
             procfs,
             sysfs,
             rootfs,
+            textfile_directory: None,
         }
+    }
+
+    #[must_use]
+    pub fn with_textfile_directory(mut self, dir: Option<PathBuf>) -> Self {
+        self.textfile_directory = dir;
+        self
     }
 
     /// Resolve a path beneath `procfs`. Accepts both `meminfo` and `/proc/meminfo`

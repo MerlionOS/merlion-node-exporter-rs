@@ -57,6 +57,10 @@ The default listen address is `:9100` and the default telemetry path is
 --path.procfs <DIR>           Default /proc (env MNE_PROCFS)
 --path.sysfs <DIR>            Default /sys  (env MNE_SYSFS)
 --path.rootfs <DIR>           Default /     (env MNE_ROOTFS)
+--collector.textfile.directory <DIR>
+                              Directory of *.prom files for the textfile
+                              collector. Unset = collector emits nothing.
+                              (env MNE_TEXTFILE_DIRECTORY)
 --no-collector <NAME>         Disable a collector. Repeatable.
 --collector.only <NAME>       Enable only the named collectors. Repeatable.
 ```
@@ -104,7 +108,7 @@ Linux MVP collectors:
 - [x] `thermal_zone` — `/sys/class/thermal/thermal_zone*`
 - [x] `time` — system clock + NTP sync state
 - [x] `vmstat` — `/proc/vmstat`
-- [ ] `textfile` — `*.prom` files from a configured directory
+- [x] `textfile` — `*.prom` files from a configured directory
 
 Past MVP:
 

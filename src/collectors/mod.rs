@@ -17,6 +17,7 @@ pub mod netstat;
 pub mod pressure;
 pub mod sockstat;
 pub mod stat;
+pub mod textfile;
 pub mod thermal_zone;
 pub mod time;
 pub mod uname;
@@ -40,6 +41,7 @@ pub fn all() -> Vec<BoxedCollector> {
         Box::new(pressure::PressureCollector),
         Box::new(sockstat::SockstatCollector),
         Box::new(netdev::NetdevCollector),
+        Box::new(textfile::TextfileCollector),
         Box::new(thermal_zone::ThermalZoneCollector),
         Box::new(time::TimeCollector),
         Box::new(uname::UnameCollector),

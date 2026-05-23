@@ -13,7 +13,8 @@ use merlion_node_exporter_rs::server;
 async fn main() -> anyhow::Result<()> {
     init_tracing();
     let cli = Cli::parse();
-    let config = Config::new(cli.procfs.clone(), cli.sysfs.clone(), cli.rootfs.clone());
+    let config = Config::new(cli.procfs.clone(), cli.sysfs.clone(), cli.rootfs.clone())
+        .with_textfile_directory(cli.textfile_directory.clone());
 
     let registry = build_registry(&cli.only_collectors, &cli.no_collector);
     tracing::info!(
