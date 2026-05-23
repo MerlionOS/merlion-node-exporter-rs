@@ -43,6 +43,15 @@ pub struct Cli {
     #[arg(long = "path.rootfs", default_value = "/", env = "MNE_ROOTFS")]
     pub rootfs: PathBuf,
 
+    /// Directory of `*.prom` files served by the textfile collector.
+    /// When unset the textfile collector emits nothing — matching upstream.
+    #[arg(
+        long = "collector.textfile.directory",
+        value_name = "DIR",
+        env = "MNE_TEXTFILE_DIRECTORY"
+    )]
+    pub textfile_directory: Option<PathBuf>,
+
     /// Disable a collector by name. May be passed multiple times.
     #[arg(long = "no-collector", value_name = "NAME")]
     pub no_collector: Vec<String>,
